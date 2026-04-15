@@ -2,33 +2,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Zoo Hunt</title>
+    <title>Scavenger Hunt</title>
   </head>
   <body>
-
-    <script>
-
-      const playing = localStorage.getItem("playing");
-      const progress = parseInt(localStorage.getItem("progress")||"0");
-      
-      const progress = localStorage.getItem("progress");
-      if (progress==="1"){
-        localStorage.setItem("progress","2");
-      }else if (progress==="2"){
-        //review state - do nothing, just allow viewing
-      }else{
-        document.body.innnerHTML="<h1>Out of Order</h1>";
-    </script>
     
     <h1>Welcome to the Zoo Scavenger Hunt</h1>
-    <p>Take your camera and find the QR codes to sites around Riverside Park and Ralph Mitchel Zoo.
-    Use the clues to find all 15.  
-    You must scan the clues in the correct order, in order to reach the end.</p>
-
-    <h2>First Clue:</h2>
-    <p>The birthplace of Miss Able.</p>
     
-    <a href="monkeyisland.html">You found it!</a>a>
+    <!-- Intro Section -->
+    <div id="intro">
+    <p>Would you like to try a scavenger hunt?
+    Explore the park and zoo, meet animals and learn history.</p>
+
+    <p>Scan the QR codes at each exhibit to progress.
+    Follow the clues in order to complete the hunt.
+    </p>
+
+    <button onclick="startHunt()">Start Hunt</button>
+    </div>
+
+    <!-- Game Section (Hidden till playing) -->
+    <div id="game" style="display:none;">
+      <h2>First Clue</h2>
+      <p id="clueText"></p>
+    </div>
+
+    <script>
+      function startHunt() {
+        // Reset game and start
+        localStorage.clear();
+        localStorage.setItem("playing", "yes");
+        localStorage.setItem("progress", "1");
+
+        // hide intro, show game
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("game").style.display = "block";
+
+        // show first clue
+        document.getElementbyId("clueText").innerText = 
+          "The birthplace of Miss Able, a monkey sent to space."
+      </script>
+    
+    <a href="monkeyisland.html">You found it!</a>
     
   </body>
 </html>
