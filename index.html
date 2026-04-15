@@ -6,6 +6,20 @@
   </head>
   <body>
 
+    <script>
+
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress")||"0");
+      
+      const progress = localStorage.getItem("progress");
+      if (progress==="1"){
+        localStorage.setItem("progress","2");
+      }else if (progress==="2"){
+        //review state - do nothing, just allow viewing
+      }else{
+        document.body.innnerHTML="<h1>Out of Order</h1>";
+    </script>
+    
     <h1>Welcome to the Zoo Scavenger Hunt</h1>
     <p>Take your camera and find the QR codes to sites around Riverside Park and Ralph Mitchel Zoo.
     Use the clues to find all 15.  
