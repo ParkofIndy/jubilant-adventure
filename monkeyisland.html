@@ -16,6 +16,9 @@
     <a href="Stevens.html">Find Next!</a>
 
     <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
       const playing = localStorage.getItem("playing");
       const progress = parseInt(localStorage.getItem("progress") || "0");
 
