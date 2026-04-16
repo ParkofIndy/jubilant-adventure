@@ -22,19 +22,27 @@
 
     <!-- Game Section (Hidden till playing) -->
     <div id="game" style="display:none;">
-      <h2>First Clue</h2>
-      <p id="clueText"></p>
+      <h2>First Clue:</h2>
+      <p>The birthplace of Miss Able, a monkey sent to space.</p>
+
+      <button onclick="quitHunt()">Quit Hunt or Start Over</button>
     </div>
 
     <script>
       
       function startHunt() {
         // Reset game and start
-        alert("Button clicked"); // temporary for debug
+        // alert("Button clicked"); temporary for debug
         
         localStorage.clear();
         localStorage.setItem("playing", "yes");
         localStorage.setItem("progress", "1");
+      }
+
+      function quitHunt() {
+        //clear progress
+        //alert("Button clicked"); temporary for debug
+        localStorage.clear();
       }
 
       const playing = localStorage.getItem("playing");
@@ -42,19 +50,11 @@
           // hide intro, show game
         document.getElementById("intro").style.display = "none";
         document.getElementById("game").style.display = "block";
-
-        // show first clue
-        document.getElementbyId("clueText").innerText = 
-          "The birthplace of Miss Able, a monkey sent to space.";
         }
 
-        // hide intro, show game
-       // document.getElementById("intro").style.display = "none";
-       // document.getElementById("game").style.display = "block";
-
-        // show first clue
-       // document.getElementbyId("clueText").innerText = 
-        //  "The birthplace of Miss Able, a monkey sent to space."
+        else {
+          document.getElementById("intro").style.display = "block";
+          document.getElementById("game").style.display = "none";
       </script>
     
     <a href="monkeyisland.html">You found it!</a>
