@@ -31,25 +31,25 @@
           // Correct Step
           localStorage.setItem("progress", nextStep.toString());
 
-          document.getElementById("game").innerHTML = '
+          document.getElementById("game").innerHTML = `
             <h2> CORRECT! </h2>
             <p> You found Monkey Island. </p>
             <p><strong>Next Clue:</strong>Housing several small animal exhibits this blue building is North of Monkey Island.</p>
-            ';
+            `;
 
         } else if (progress > requiredStep) {
           // Review State
-          document.getElementById("game").innerHTML = '
+          document.getElementById("game").innerHTML = `
             <p>You already found this location.</p>
             <p><strong>Next Clue:</strong> Housing several small animal exhibits this blue building was constructed in 19xx with efforts from. </p>
-            ';
+            `;
 
         } else {
           // Out of Sequence
-          document.getElementById("game").innerHTML = '
+          document.getElementById("game").innerHTML = `
             <h2>Not Yet</h2>
             <p>You need to find the previous clue first.</p>
-          ';
+          `;
         }
       }
     </script>
