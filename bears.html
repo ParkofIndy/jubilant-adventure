@@ -2,16 +2,56 @@
 <html>
   <head>
     <title>The Bear Exhibit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   </head>
   <body>
 
-    <h1>You Found the Bears!</h1>
-    <p>Meet Sasha and kkkkkk, they are sisters born in 20xx.  xx bears can reach 6 feet tall and 400lbs.</p>
+    <h1>The Syrian Brown Bears</h1>
+    <p>Our two Syrian Brown Bears, named Samara and Amalia, spend time here relaxing in the cooler air of the ravine and digging
+    in the rocks and mud.  They are gifted diggers utilizing tremendous strength and size to great effect. </p>
 
-    <h2>Next Clue:</h2>
-    <p>Little Miss Muffet sat on a tuffet watching a castle and shoe. </p>
- 
+    <div id="game"></div>
+
     <a href="kiddieland.html">Find Next!</a>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 3;
+      const nextStep = 4;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found the Syrian Brown Bears. </p>
+            <p><strong>Next Clue:</strong> Little Miss Muffet sat on a tuffet watching a castle and shoe.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
