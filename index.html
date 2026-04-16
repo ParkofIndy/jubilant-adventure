@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0> -->
     <title>Scavenger Hunt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
    
@@ -14,7 +14,7 @@
     <p>Would you like to try a scavenger hunt?
     Explore the park and zoo, meet animals and learn history.</p>
 
-    <p>Scan the QR codes at each exhibit to progress.
+    <p>Scan the QR codes at each location to progress.
     Follow the clues in order to complete the hunt.
     </p>
 
@@ -33,18 +33,17 @@
       
       function startHunt() {
         // Reset game and start
-         alert("Button clicked"); temporary for debug
         
         localStorage.clear();
         localStorage.setItem("playing", "yes");
         localStorage.setItem("progress", "1");
+        
         document.getElementById("intro").style.display = "none";
         document.getElementById("game").style.display = "block";
       }
 
       function quitHunt() {
-        //clear progress
-        //alert("Button clicked"); temporary for debug
+        // clear progress
         localStorage.clear();
         document.getElementById("intro").style.display = "block";
         document.getElementById("game").style.display = "none";
