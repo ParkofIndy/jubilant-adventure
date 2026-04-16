@@ -5,7 +5,7 @@
     <title>Scavenger Hunt</title>
   </head>
   <body>
-    
+   
     <h1>Welcome to the Zoo Scavenger Hunt</h1>
     
     <!-- Intro Section -->
@@ -25,6 +25,20 @@
       <h2>First Clue</h2>
       <p id="clueText"></p>
     </div>
+
+    <script>
+      const playing = localStorage.getItem("playing");
+        if (playing === "yes"){
+          // hide intro, show game
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("game").style.display = "block";
+
+        // show first clue
+        document.getElementbyId("clueText").innerText = 
+          "The birthplace of Miss Able, a monkey sent to space."
+        }
+      </script>
+
 
     <script>
       function startHunt() {
