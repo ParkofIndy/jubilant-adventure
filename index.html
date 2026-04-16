@@ -32,30 +32,22 @@
       
       function startHunt() {
         // Reset game and start
-        alert("Button clicked"); // temporary for debug
+        // alert("Button clicked"); temporary for debug
         
         localStorage.clear();
         localStorage.setItem("playing", "yes");
         localStorage.setItem("progress", "1");
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("game").style.display = "block";
       }
 
       function quitHunt() {
         //clear progress
         //alert("Button clicked"); temporary for debug
         localStorage.clear();
+        document.getElementById("intro").style.display = "block";
+        document.getElementById("game").style.display = "none";
       }
-
-      const playing = localStorage.getItem("playing");
-        if (playing === "yes"){
-          // hide intro, show game
-        document.getElementById("intro").style.display = "none";
-        document.getElementById("game").style.display = "block";
-        }
-
-        else {
-          document.getElementById("intro").style.display = "block";
-          document.getElementById("game").style.display = "none";
-        }
       </script>
     
     <a href="monkeyisland.html">You found it!</a>
