@@ -27,6 +27,14 @@
     </div>
 
     <script>
+      
+      function startHunt() {
+        // Reset game and start
+        localStorage.clear();
+        localStorage.setItem("playing", "yes");
+        localStorage.setItem("progress", "1");
+      }
+
       const playing = localStorage.getItem("playing");
         if (playing === "yes"){
           // hide intro, show game
@@ -37,12 +45,6 @@
         document.getElementbyId("clueText").innerText = 
           "The birthplace of Miss Able, a monkey sent to space."
         }
-    
-      function startHunt() {
-        // Reset game and start
-        localStorage.clear();
-        localStorage.setItem("playing", "yes");
-        localStorage.setItem("progress", "1");
 
         // hide intro, show game
        // document.getElementById("intro").style.display = "none";
