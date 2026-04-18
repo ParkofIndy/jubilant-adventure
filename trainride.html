@@ -1,17 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Miniature Train Ride</title>
+    <title>Miniature Train</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   </head>
   <body>
 
-    <h1>Correct, The Miniature Train</h1>
-    <p>The train ride was installed at Riverside park in 1953 and has been providing rides for children of all ages for more than
-    70 years.  Still chugging along this miniature train provides faithful service thanks to dedicated efforts of volunteers
-    and staff.</p>
-    
-    <h2>Next Clue:</h2>
-    <p>Children play in the summer sun.</p>
+    <h1>The Miniature Train</h1>
+    <p>The train ride,built by the Miniature Train Company (MTC), was installed at Riverside park in 1953 and has been providing
+    rides for children of all ages for more than 70 years.  Still chugging along this miniature train provides faithful service
+    thanks to dedicated efforts of volunteers
+    and staff.  If you would like to ride the train is open weather permitting on:
+    </p>
+
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 9;
+      const nextStep = 10;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found the Miniature Train!! </p>
+            <p><strong>Next Clue:</strong>Children play in the summer sun.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
+
