@@ -2,15 +2,54 @@
 <html>
   <head>
     <title>Bison Exhibit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   </head>
   <body>
 
-    <h1>You Found the Bison!</h1>
+    <h1>The Bison</h1>
     <p>The largest land mammal of the north american continent, the bison weighs more than even elk and moose.  Don't mistake
     their large size for slow. These athletes can run 35mph, jump 6 foot fences, plow through heavy brush and snow, and turn on a dime</p>
 
-    <h2>Next Clue:</h2>
-    <p>This public works project is a great place to just relax and watch the birds. </p>
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 6;
+      const nextStep = 7;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found The Bison Exhibit!! </p>
+            <p><strong>Next Clue:</strong>This public works project is a great place to just relax and watch the birds.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
