@@ -2,15 +2,70 @@
 <html>
   <head>
     <title>Summer Fun</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        background: linear-gradient(to bottom, #f6f4ee, #e9e6dd);
+        color: #222;
+      }
+
+      .card{
+        background: rgba(255, 255, 255, 0.7);
+        padding: 12px;
+        border-radius: 10px;
+      }
+    </style>
+    
   </head>
   <body>
 
-    <h1>The sculpture Garden</h1>
-    <p>The "Summer Fun" statues were installed in 19xx and designed to spray water.  Later a push button timer was added
-    for visitors to turn on the enertaining display on their own.</p>
-    
-    <h2>Next Clue:</h2>
-    <p>From one water display to another.  This is a park centerpiece.</p>
+    <h1>The Statue Garden</h1>
+    <p>Installed by the Friends of Riverside Park and Zoo, the "Summer Fun" water feature now includes push button activation
+      with timer so families can enjoy a display and cool off.  
+    </p>
+
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 10;
+      const nextStep = 11;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found "Summer Fun"!! </p>
+            <p><strong>Next Clue:</strong>From one water display to another.  This is a park centerpiece.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
+
