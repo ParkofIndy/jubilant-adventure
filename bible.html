@@ -1,15 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Ten Commandments</title>
+    <title>Ten Commandments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   </head>
   <body>
 
-    <h1>You Found the Ten Commandments!</h1>
-    <p></p>
+    <h1>The Ten Commandments</h1>
+    <p> This monument to the ten commandments was built in 19XX by the Christian Coalition of Independence.  This encapsulates the
+      laws found in the Bible in both the Book of Exodus 20:2-17 and Deuteronomy 5:6-21.  These laws distill the fundamentals of
+      a free and fair society.
 
-    <h2>Next Clue:</h2>
-    <p>This symbol of the west use to roam the plains by the millions.</p>
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 5;
+      const nextStep = 6;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found The Ten Commandments!! </p>
+            <p><strong>Next Clue:</strong>This symbol of the west use to roam the plains by the millions.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
