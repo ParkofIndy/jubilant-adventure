@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Logan Fountain</title>
+    <title>Logan Fountain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        background: linear-gradient(to bottom, #f6f4ee, #e9e6dd);
+        color: #222;
+      }
+
+      .card{
+        background: rgba(255, 255, 255, 0.7);
+        padding: 12px;
+        border-radius: 10px;
+      }
+    </style>
+    
   </head>
   <body>
 
-    <h1>FOUND.  The Logan Fountain</h1>
+    <h1>The Logan Fountain</h1>
     <p>The fountian is a town favorite first installed in 19xx and getting a restoration in 2014.  Around the edge are bronze statues
-    honoring local playwright William Inge.</p>
-    
-    <h2>Next Clue:</h2>
-    <p>Well, they are called fossil fuels.</p>
+    honoring local playwright William Inge.  
+    </p>
+
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 11;
+      const nextStep = 12;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found "Summer Fun"!! </p>
+            <p><strong>Next Clue:</strong>Well, they are called fossil fuels.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not quite</h2>
+            <p>Take another look at the clue or ask for help.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
+
