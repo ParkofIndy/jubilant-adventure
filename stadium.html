@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shulthis Stadium Grandstand</title>
+    <title>Shulthis Stadium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   </head>
   <body>
 
-    <h1>Yes, The Shulthis Stadium Grandstand!</h1>
+    <h1>Shulthis Stadium</h1>
     <p>Built in built in 1918 by Albert W. Shulthis, and donated to the city of Independence. The stadium was home 
       to minor league baseball teams for many years. The teams included the Independence Producers, the Independence Yankees,
       and the Independence Browns. The stadium was also the site for the first night game in the history of Organized Baseball,
       which was played on April 28, 1930.</p>
-    
-    <h2>Next Clue:</h2>
-    <p>All Aboard!!!! It's time to take a ride.</p>
+
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 8;
+      const nextStep = 9;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found Shulthis Stadium!! </p>
+            <p><strong>Next Clue:</strong>All Aboard!! It's time to take a ride.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
+
