@@ -2,16 +2,56 @@
 <html>
   <head>
     <title>Kiddie Land</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   </head>
   <body>
 
-    <h1>You Found Kiddie Land!</h1>
-    <p>This story book inspired playground inside the zoo was built and maintained
+    <h1>Welcome to Kiddie Land</h1>
+    <p> his story book inspired playground inside the zoo was built and maintained
     by our local Lions Club.  Organizations like this support and care for our communities in many ways.  You can check out other
-    things they do here <a href="">Visit the Lions Club.</a></p>
+    things they do here <a href="https://www.facebook.com/IndependenceLionsClub/">Visit the Lions Club.</a></p></p>
 
-    <h2>Next Clue:</h2>
-    <p>Through the secret path find the monument representing a list of ten laws that govern a free and fair society</a></p>
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 4;
+      const nextStep = 5;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found Kiddie Land!! </p>
+            <p><strong>Next Clue:</strong>Through the secret path find the monument representing a list of ten laws that govern 
+            a free and fair society</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
