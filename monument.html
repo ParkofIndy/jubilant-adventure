@@ -1,6 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Sinclair Dinosaur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        background: linear-gradient(to bottom, #f6f4ee, #e9e6dd);
+        color: #222;
+      }
+
+      .card{
+        background: rgba(255, 255, 255, 0.7);
+        padding: 12px;
+        border-radius: 10px;
+      }
+    </style>
+    
+  </head>
+  <body>
+
+    <h1>Sinclair Dinosaur</h1>
+    <p>This Corythosaurus dinosaur was one of nine dinosaurs appearing in the 1964 Worlds Fair.  The Sinclair Oil company
+      had them created by the Jonas Studio and when they were done with them they found homes all over the country.
+      By 1965, the Corythosaurus from the Sinclair Dinoland display found its way to Independence KS.  The home town of Sinclair. 
+    </p>
+
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 12;
+      const nextStep = 13;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found "Summer Fun"!! </p>
+            <p><strong>Next Clue:</strong>Honor the fallen</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not quite</h2>
+            <p>Take another look at the clue and try again.</p>
+          `;
+        }
+      }
+    </script>
+    
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+  <head>
     <title>Freedom Square</title>
   </head>
   <body>
