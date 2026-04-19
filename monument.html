@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sinclair Dinosaur</title>
+    <title>Freedom Square</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body{
@@ -21,10 +21,11 @@
   </head>
   <body>
 
-    <h1>Sinclair Dinosaur</h1>
-    <p>This Corythosaurus dinosaur was one of nine dinosaurs appearing in the 1964 Worlds Fair.  The Sinclair Oil company
-      had them created by the Jonas Studio and when they were done with them they found homes all over the country.
-      By 1965, the Corythosaurus from the Sinclair Dinoland display found its way to Independence KS.  The home town of Sinclair. 
+    <h1>Veteran's Freedom Square</h1>
+    <p>In August 2014 a group of veterans and patriots formed a committee with the intent of creating a memorial honoring all the
+      veterans that had served honorably in the U.S. military.  On September 11th of 2016 groundbreaking officially started, and on
+      May 28th of 2018 the memorial held a dedication ceremony.
+      To learn more or honor someone you know visit <a href="https://www.veteransfreedomsquare.com/">Veterans Freedom Square</a>
     </p>
 
     <div id="game"></div>
@@ -37,8 +38,8 @@
       const progress = parseInt(localStorage.getItem("progress") || "0");
 
       // CHANGE THESE NUMBERS PER PAGE
-      const requiredStep = 12;
-      const nextStep = 13;
+      const requiredStep = 13;
+      const nextStep = 14;
 
       if (playing === "yes") {
         if (progress === requiredStep) {
@@ -47,8 +48,8 @@
 
           document.getElementById("game").innerHTML = `
             <h2> CORRECT! </h2>
-            <p> You found "Summer Fun"!! </p>
-            <p><strong>Next Clue:</strong>Honor the fallen</p>
+            <p> You found Veterans Freedom Square!! </p>
+            <p><strong>Next Clue:</strong>This iconic horse made of iron was essential in developing the west.</p>
             `;
 
         } else if (progress > requiredStep) {
@@ -67,22 +68,5 @@
       }
     </script>
     
-  </body>
-</html>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Freedom Square</title>
-  </head>
-  <body>
-
-    <h1>Veterans Freedom Square</h1>
-    <p>Take time to honor the veterans and learn about the wars fought.  Veterans Freedom Square was dedicated on May 28th of 2018.
-    If you would like to learn more visit <a href="https://www.veteransfreedomsquare.com/">Veterans Freedom Square</a></p>
-    
-    <h2>Next Clue:</h2>
-    <p>This iconic horse made of iron was essential in developing the west.</p>
- 
   </body>
 </html>
