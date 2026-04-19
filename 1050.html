@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Freedom Square</title>
+    <title>1050 Steam Train</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        background: linear-gradient(to bottom, #f6f4ee, #e9e6dd);
+        color: #222;
+      }
+
+      .card{
+        background: rgba(255, 255, 255, 0.7);
+        padding: 12px;
+        border-radius: 10px;
+      }
+    </style>
+    
   </head>
   <body>
 
-    <h1>Veterans Freedom Square</h1>
-    <p>Take time to honor the veterans and learn about the wars fought.  Veterans Freedom Square was dedicated on May 28th of 2018.
-    If you would like to learn more visit <a href="https://www.veteransfreedomsquare.com/">Veterans Freedom Square</a></p>
-    
-    <h2>Next Clue:</h2>
-    <p>This iconic horse made of iron was essential in developing the west.</p>
+    <h1>1050 Steam Train</h1>
+    <p>This Steam Locomotive built by Baldwin for the AT&SF is 2-6-2 Prairie Type.  Built in 1903 it was brought to 
+      Riverside Park in 1955.  In 2024, a large restoration project made the train safer for the public, added stairs to access the
+      cab and gave it a repaint.
+    </p>
+
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 14;
+      const nextStep = 15;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found the 1050 Steam Engine!! </p>
+            <p><strong>Next Clue:</strong>Find the horses that gallop around as music plays.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not quite</h2>
+            <p>Take another look at the clue and try again.</p>
+          `;
+        }
+      }
+    </script>
     
   </body>
 </html>
