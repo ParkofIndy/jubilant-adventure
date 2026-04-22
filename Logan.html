@@ -3,7 +3,8 @@
   <head>
     <title>Logan Fountain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+   <style>
+      
       body{
         font-family: Arial, sans-serif;
         margin: 16px;
@@ -11,6 +12,25 @@
         color: #222;
       }
 
+      .photo-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px 0;
+
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+        .photo-scroll img {
+          width: 80vw;
+          max-width: 400px;
+          height: auto;
+          flex-shrink: 0;
+
+          border-radius: 8px;
+          scroll-snap-align: start;
+        }
       .card{
         background: rgba(255, 255, 255, 0.7);
         padding: 12px;
