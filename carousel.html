@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bison Exhibit</title>
+    <title>The Carousel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       
@@ -40,12 +40,11 @@
     
   </head>
   <body>
-
+    <div id="game"></div>
+    
     <h1>The Carousel</h1>
     <p>This crowd favorite has been a park favorite since 1953.  The price has never gone up since it was installed.
       It cost just a nickel for this timeless classic.  Whirl through history with these old photographs</p>
-
-    <div id="game"></div>
 
     <script>
       console.log("playing:", localStorage.getItem("playing"));
@@ -55,8 +54,8 @@
       const progress = parseInt(localStorage.getItem("progress") || "0");
 
       // CHANGE THESE NUMBERS PER PAGE
-      const requiredStep = 6;
-      const nextStep = 7;
+      const requiredStep = 14;
+      const nextStep = 15;
 
       if (playing === "yes") {
         if (progress === requiredStep) {
