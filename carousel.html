@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bison Exhibit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      
+      body{
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        background: linear-gradient(to bottom, #f6f4ee, #e9e6dd);
+        color: #222;
+      }
 
+      .photo-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px 0;
+
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+        .photo-scroll img {
+          width: 80vw;
+          max-width: 400px;
+          height: auto;
+          flex-shrink: 0;
+
+          border-radius: 8px;
+          scroll-snap-align: start;
+        }
+      .card{
+        background: rgba(255, 255, 255, 0.7);
+        padding: 12px;
+        border-radius: 10px;
+      }
+    </style>
+    
+  </head>
+  <body>
+
+    <h1>The Carousel</h1>
+    <p>This crowd favorite has been a park favorite since 1953.  The price has never gone up since it was installed.
+      It cost just a nickel for this timeless classic.  Whirl through history with these old photographs</p>
+
+    <div id="game"></div>
+
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 6;
+      const nextStep = 7;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found The Carouselt!! </p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
+    
+  </body>
+</html>
