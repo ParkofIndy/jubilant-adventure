@@ -29,11 +29,49 @@
       }
         
       .card{
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.85);
         padding: 12px;
         border-radius: 10px;
+        margin-bottom: 12px;
       }
 
+      h1 {
+        margin: 0;
+        font-size: 26px;
+      }
+
+      h2 {
+        color: var(--primary);
+        margin-top: 0;
+      }
+
+      .subtitle {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: -5px;
+        margin-bottom: 10px;
+      }
+
+      /* Photo scroller */
+      .photo-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px
+        padding: 10px 0;
+
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .photo-scroll img {
+        width: 80vw;
+        max-width; 400px;
+        height: auto;
+        flex-shrink: 0;
+
+        border-radius: 8px;
+        scroll-snap-align: start;
+      }
       
     </style>
   </head>
