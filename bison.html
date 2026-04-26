@@ -81,12 +81,31 @@
   
   <body>
 
+    <!--HEADER-->
+    <div class="header">
     <h1>The Bison</h1>
-    <p>The largest land mammal of the north american continent, the bison weighs more than even elk and moose.  Don't mistake
-    their large size for slow. These athletes can run 35mph, jump 6 foot fences, plow through heavy brush and snow, and turn on a dime</p>
+    </div>
 
+    <!--GAME SECTION-->
     <div id="game"></div>
 
+    <!--INFORMATION-->
+    <div class="card">
+    <p>The largest land mammal of the north american continent, the bison weighs more than even elk and moose.  Don't mistake
+    their large size for slow. These athletes can run 35mph, jump 6 foot fences, plow through heavy brush and snow, and turn on a dime</p>
+  </div>
+
+    <!--HISTORIC PHOTOS-->
+    <div class="card">
+      <h2>Historic Photos</h2>
+      <p class="subtitle">Swipe to explore photos</p>
+
+    <div class="photo-scroll">
+      <img src="images/">
+    </div>
+    </div>
+
+    <!--GAME CODE LOGIC-->
     <script>
       console.log("playing:", localStorage.getItem("playing"));
       console.log("progress:", localStorage.getItem("progress"));
@@ -126,4 +145,5 @@
     </script>
     
   </body>
+</html>
 </html>
