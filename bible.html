@@ -81,12 +81,29 @@
   
   <body>
 
+    <!--HEADER-->
+    <div class="header">
     <h1>The Ten Commandments</h1>
+    </div>
+
+    <!--GAME SECTION-->
+    <div id="game"></div>
+
+    <!--INFORMATION-->
+    <div class="card">
     <p> This monument to the ten commandments was built in 19XX by the Christian Coalition of Independence.  This encapsulates the
       laws found in the Bible in both the Book of Exodus 20:2-17 and Deuteronomy 5:6-21.  These laws distill the fundamentals of
       a free and fair society.
+      </div>
 
-    <div id="game"></div>
+    <!--HISTORIC PHOTOS-->
+    <div class="card">
+      <h2>Historic Photos</h2>
+      <p class="subtitle">Swipe to explore photos</p>
+    <div class="photo-scroll">
+      <img src="">
+    </div>
+    </div>
 
     <script>
       console.log("playing:", localStorage.getItem("playing"));
@@ -125,6 +142,7 @@
         }
       }
     </script>
-    
+  </body>
+</html>
   </body>
 </html>
