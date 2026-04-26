@@ -81,12 +81,31 @@
   
   <body>
 
-    <h1>The Syrian Brown Bears</h1>
-    <p>Our two Syrian Brown Bears, named Samara and Amalia, spend time here relaxing in the cooler air of the ravine and digging
-    in the rocks and mud.  They are gifted diggers utilizing tremendous strength and size to great effect. </p>
+    <!--HEADER-->
+    <div class="header">
+      <h1>The Syrian Brown Bears</h1>
+    </div>
 
+    <!--GAME SECTION-->
     <div id="game"></div>
 
+    <!--INFORMATION-->
+    <div class="card"
+    <p>Our two Syrian Brown Bears, named Samara and Amalia, spend time here relaxing in the cooler air of the ravine and digging
+    in the rocks and mud.  They are gifted diggers utilizing tremendous strength and size to great effect. </p>
+    </div>
+
+    <!--HISTORIC PHOTOS-->
+    <div class="card">
+      <h2>Historic Photos</h2>
+      <p class="subtitle">Swipe to explore photos</p>
+
+      <div class="photo-scroll">
+        <img src="images/ravine/Ravine Black and white photo.png">
+      </div>
+    </div>
+  </body>
+  
     <script>
       console.log("playing:", localStorage.getItem("playing"));
       console.log("progress:", localStorage.getItem("progress"));
