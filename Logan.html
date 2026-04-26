@@ -4,8 +4,15 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Logan Fountain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <style>
-      
+   
+  <style>
+      :root {
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        background: linear-gradient(to bottom, #f6f4ee, #e9e6dd);
+        color: #222;
+      }
+        
       body{
         font-family: Arial, sans-serif;
         margin: 16px;
@@ -13,33 +20,62 @@
         color: #222;
       }
 
+      .header {
+        background: var(--primary);
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+      }
+        
+      .card{
+        background: rgba(255, 255, 255, 0.85);
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 26px;
+      }
+
+      h2 {
+        color: var(--primary);
+        margin-top: 0;
+      }
+
+      .subtitle {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: -5px;
+        margin-bottom: 10px;
+      }
+
+      /* Photo scroller */
       .photo-scroll {
         display: flex;
         overflow-x: auto;
-        gap: 10px;
+        gap: 10px
         padding: 10px 0;
 
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
       }
 
-        .photo-scroll img {
-          width: 80vw;
-          max-width: 400px;
-          height: auto;
-          flex-shrink: 0;
+      .photo-scroll img {
+        width: 80vw;
+        max-width; 400px;
+        height: auto;
+        flex-shrink: 0;
 
-          border-radius: 8px;
-          scroll-snap-align: start;
-        }
-      .card{
-        background: rgba(255, 255, 255, 0.7);
-        padding: 12px;
-        border-radius: 10px;
+        border-radius: 8px;
+        scroll-snap-align: start;
       }
-    </style>
-    
+      
+    </style>  
   </head>
+  
   <body>
 
     <h1>The Logan Fountain</h1>
