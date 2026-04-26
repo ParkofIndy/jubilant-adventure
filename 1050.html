@@ -81,19 +81,33 @@
   
   <body>
 
+    <!--GAME SECTION -->
     <div id="game"></div>
 
+    <!-- HEADER -->
+    <div class="header">
     <h1>1050 Steam Train</h1>
+    </div>
+
+    <!--INFO -->
+    <div class="card">
     <p>This Steam Locomotive built by Baldwin for the AT&SF is 2-6-2 Prairie Type.  Built in 1903 it was brought to 
       Riverside Park in 1955.  In 2024, a large restoration project made the train safer for the public, added stairs to access the
       cab and gave it a repaint.
     </p>
-
+    </div>
+    
+    <!-- HISTORIC PHOTOS -->
+    <div class="card">
+      <h2>Pieces of the Past</h2>
+      <p class="subtitle">Swipe to explore past views</p>
+      
     <div class="photo-scroll">
         <img src="images/1050SteamTrain/AT&SF 1050 Delivery.jpg">
         
       </div>
-
+    </div>
+    
     <script>
       console.log("playing:", localStorage.getItem("playing"));
       console.log("progress:", localStorage.getItem("progress"));
