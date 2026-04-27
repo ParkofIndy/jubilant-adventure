@@ -111,13 +111,12 @@
       const playing = localStorage.getItem("playing");
       const progress = parseInt(localStorage.getItem("progress") || "0");
 
-      // CHANGE THESE NUMBERS PER PAGE
       const requiredStep = 2;
       const nextStep = 3;
 
       if (playing === "yes") {
         if (progress === requiredStep) {
-          // Correct Step
+         
           localStorage.setItem("progress", nextStep.toString());
 
           document.getElementById("game").innerHTML = `
@@ -127,7 +126,7 @@
             `;
 
         } else if (progress > requiredStep) {
-          // Review State
+          
           document.getElementById("game").innerHTML = `
             <p>You already found this location.</p>
             `;
