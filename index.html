@@ -30,6 +30,26 @@
 
         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       }
+
+      .button {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        background: #4a6b3f;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease, background 0.2 ease;
+      }
+
+      .button:active {
+        transform: scale(0.97);
+        background: #3b5532;
         
       .card{
         background: rgba(255, 255, 255, 0.85);
@@ -80,8 +100,11 @@
   </head>
   
   <body>
-   
+
+    <!--HEADER-->
+    <div class="header">
     <h1>Welcome to the Zoo Scavenger Hunt</h1>
+    </div>
     
     <!-- Intro Section -->
     <div id="intro">
@@ -92,7 +115,7 @@
     Follow the clues in order to complete the hunt.
     </p>
 
-    <button onclick="startHunt()">Start Hunt</button>
+    <button class="button" onclick="startHunt()">Start Hunt</button>
     </div>
 
     <!-- Game Section (Hidden till playing) -->
@@ -100,7 +123,7 @@
       <h2>First Clue:</h2>
       <p>The birthplace of Miss Able, a monkey sent to space.</p>
 
-      <button onclick="quitHunt()">Quit Hunt or Start Over</button>
+      <button class="button" onclick="quitHunt()">Quit Hunt or Start Over</button>
     </div>
 
     <script>
