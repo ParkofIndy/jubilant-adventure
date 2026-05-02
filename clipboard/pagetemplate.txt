@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Monkey Island</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="css/styles.css>
+    
+  </head>
+  
+  <body>
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Monkey Island</h1>
+    </div>
+
+    <!--GAME SECTION-->
+    <div id="game"></div>
+
+    <!-- INFO SECTION -->
+    <div class="card">
+    <p>Built by a public works project in 1932.  Monkey Island is the birthplace of Miss Able.  Miss Able was a capuchin monkey sent into
+    space and propelled the United States of America forward in the space race.</p>
+    </div>
+
+    <!-- HISTORY PHOTOS -->
+      <div class="card">
+        <h2>Historic Photos</h2>
+        <p class="subtitle">Swipe to explore photos of the past</p>
+      <div class="photo-scroll">
+        <img src="images/MonkeyIsland/Old Monkey Island 1932.jpg">
+        <img src="images/miss able/014 front.jpg">
+        <img src="images/miss able/Able solo.jpg">
+      </div>
+      </div>
+    
+    <script>
+      console.log("playing:", localStorage.getItem("playing"));
+      console.log("progress:", localStorage.getItem("progress"));
+      
+      const playing = localStorage.getItem("playing");
+      const progress = parseInt(localStorage.getItem("progress") || "0");
+
+      // CHANGE THESE NUMBERS PER PAGE
+      const requiredStep = 1;
+      const nextStep = 2;
+
+      if (playing === "yes") {
+        if (progress === requiredStep) {
+          // Correct Step
+          localStorage.setItem("progress", nextStep.toString());
+
+          document.getElementById("game").innerHTML = `
+            <h2> CORRECT! </h2>
+            <p> You found Monkey Island. </p>
+            <p><strong>Next Clue:</strong>Housing several small animal exhibits this blue building is North of Monkey Island.</p>
+            `;
+
+        } else if (progress > requiredStep) {
+          // Review State
+          document.getElementById("game").innerHTML = `
+            <p>You already found this location.</p>
+            <p><strong>Next Clue:</strong> Housing several small animal exhibits this blue building was constructed in 19xx with efforts from. </p>
+            `;
+
+        } else {
+          // Out of Sequence
+          document.getElementById("game").innerHTML = `
+            <h2>Not Yet</h2>
+            <p>You need to find the previous clue first.</p>
+          `;
+        }
+      }
+    </script>
+    
+  </body>
+</html>
